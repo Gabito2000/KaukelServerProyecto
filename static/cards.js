@@ -42,15 +42,14 @@ function generateCards(processes) {
       // if the service is active remove the start button and add the end button
         fetch(`/status?command=${process.command}`).then(response => {
           //te server is returning a json object
-           console.log(response)
-
-            if (response == "Running") {
+          response.json().then(data => {
+            if (data.status == "Running") {
               card.appendChild(endBtn);
             } else {
               card.appendChild(startBtn);
             }
           });  
-  
+        });
       // Append the card to the cards container
       cardsContainer.appendChild(card);
     }

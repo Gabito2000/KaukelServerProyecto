@@ -1,5 +1,5 @@
 # app.py
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 import subprocess
 import json
 import ast
@@ -63,8 +63,8 @@ def status():
     command = request.args.get("command")
     for process in processes:
         if process[1] == command:
-            return "Running"
-    return "Stopped"
+            return jsonify({"status": "Running"})
+    return jsonify({"status": "Stopped"})
     
     
 if __name__ == "__main__":
