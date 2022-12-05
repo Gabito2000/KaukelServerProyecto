@@ -1,0 +1,21 @@
+<!-- templates/index.html -->
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='global.css') }}">
+    <title>Process Management</title>
+  </head>
+  <body>
+    <h1>Process Management</h1>
+    <div id="cards-container">
+      <!-- Cards will be added here -->
+    </div>
+
+    <!-- Import the cards.js file -->
+    <script src="{{ url_for('static', filename='cards.js') }}"></script>
+    <script src="{{ url_for('static', filename='processes.js') }}"></script>
+    <script>
+      // Generate the cards
+      generateCards(processes);
+    </script>
+  </body>
+</html>
