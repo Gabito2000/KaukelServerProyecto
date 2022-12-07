@@ -40,3 +40,6 @@ processes = [{
 
 You can add or remove elements of the array as you see fit.
 The elements of the array describe the cards, its images, names and command executed when started.
+
+## The final result
+![ Final result](/static/ResultadoFinal.PNG)
