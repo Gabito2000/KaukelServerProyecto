@@ -1,7 +1,7 @@
 /* Define CSS variables */
 :root {
-  --main-color: #008080;
-  --secondary-color: #ccc;
+  --main-color: #041414;
+  --secondary-color: rgb(4, 48, 10);
   --font-size: 16px;
 }
 
@@ -31,47 +31,16 @@
   border-radius: 4px 4px 0 0; /* Add rounded corners to the image */
 }
 
-/* Style the title in each card */
-.card h3 {
-  font-size: var(--font-size); /* Set the font size of the title */
-  margin: 0; /* Remove the default margin of the title */
-  padding: 10px; /* Add some padding to the title */
-  background-color: var(--main-color); /* Set the background color of the title */
-  color: white; /* Set the text color of the title */
-  border-radius: 0 0 4px 4px; /* Add rounded corners to the title */
+/*style of the background and the title of the page*/
+body {
+  background-color: var(--main-color);
+  font-family: "Roboto", sans-serif;
+  color: white;
+  font-size: var(--font-size);
 }
 
-/* Style the start and end buttons in each card */
-.card button {
-  background-color: var(--main-color); /* Set the background color of the buttons */
-  color: white; /* Set the text color of the buttons */
-  padding: 10px; /* Add some padding to the buttons */
-  border: none; /* Remove the default border of the buttons */
-  cursor: pointer; /* Change the cursor to a pointer when hovering over the buttons */
-  margin-bottom: 10px; /* Add some margin below the buttons */
-  box-sizing: border-box; /* Include the padding in the width and height of the buttons */
-  transition: background-color 0.2s ease; /* Add a smooth transition for the background-color property */
-  }
-  
-  /* Style the buttons when they are hovered over by the cursor */
-  .card button:hover {
-  background-color: #004d4d; /* Change the background color of the buttons */
-  }
-  
-  /* Style the buttons when they are clicked */
-  .card button:active {
-  background-color: #004d4d; /* Change the background color of the buttons */
-  }
-  
-  h1 {
-  text-align: center; /* Center the text of the h1 element */
-  color: var(--main-color); /* Set the text color of the h1 element */
-  text-shadow: 2px 2px 4px var(--secondary-color); /* Add a shadow to the text of the h1 element */
-  margin: 20px 0; /* Add some top and bottom margin to the h1 element */
-  }
-  
-  body {
-  background-color: rgb(109, 209, 159); /* Fallback color for browsers that do not support gradients */
-  background-image: linear-gradient(to bottom, #9fcab2, rgb(84, 252, 148)); /* Gradient for browsers that support it */
-  height: 100%;
-  }
+/*style of the title of the page*/
+h1 {
+  font-size: 2em;
+  text-align: center;
+}

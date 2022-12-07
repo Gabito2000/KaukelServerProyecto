@@ -31,6 +31,10 @@ processes = []
 def index():
   return render_template("index.html")
 
+@app.route("/tilewindtest", methods=["GET"])
+def tilewindtest():
+    return render_template("tilewindtest.html")
+
 
 @app.route("/start", methods=["GET"])
 def start_process():
@@ -41,8 +45,8 @@ def start_process():
             print("Process started "+ command) 
             process = subprocess.Popen(command, stdout=subprocess.PIPE, shell=True)
             processes.append((process, command))
-            return "Process started"
-    return "Process not found"
+            return render_template("index.html", action="Se ha iniciado el proceso")
+    return render_template("index.html", action="No se ha encontrado el proceso")
 
 @app.route("/end", methods=["GET"])
 def stop_process():
@@ -53,9 +57,9 @@ def stop_process():
             process[0].kill()
             processes.remove(process)
             print("Process killed " + command)
-            return "Process stopped"
+            return render_template("index.html", action="Se ha detenido el proceso")
     print("Process not found " + command)
-    return "No process found"
+    return render_template("index.html", action="No se ha encontrado el proceso")
 
 @app.route("/status", methods=["GET"])
 def status():
