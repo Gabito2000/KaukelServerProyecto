@@ -4,6 +4,7 @@ import subprocess
 import json
 import ast
 import textwrap
+import psutil
 
 def read_processes_from_file(filename):
   with open(filename) as f:
@@ -48,13 +49,19 @@ def start_process():
             return render_template("index.html", action="Se ha iniciado el proceso")
     return render_template("index.html", action="No se ha encontrado el proceso")
 
+def kill(proc_pid):
+    process = psutil.Process(proc_pid)
+    for proc in process.children(recursive=True):
+        proc.kill()
+    process.kill()
+
 @app.route("/end", methods=["GET"])
 def stop_process():
     #STOP PROCESS COMMAND AND REMOVE IT FROM THE LIST
     command = request.args.get("command")
     for process in processes:
         if process[1] == command:
-            process[0].kill()
+            kill(process[0].pid)
             processes.remove(process)
             print("Process killed " + command)
             return render_template("index.html", action="Se ha detenido el proceso")

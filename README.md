@@ -4,6 +4,7 @@
 execute the next line of commands
 ```cmd
 pip install flask
+pip install psutil
 
 npm install
 
